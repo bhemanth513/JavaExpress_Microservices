@@ -1,0 +1,20 @@
+spring.application.name=loans
+
+
+server.port=9093
+
+spring.datasource.url=jdbc:h2:mem:accountsdb
+spring.datasource.username=admin
+spring.datasource.password=admin
+spring.h2.console.enabled=true
+
+spring.jpa.hibernate.ddl-auto=update
+
+#to enable Actuator
+management.endpoints.web.exposure.include=*
+
+management.info.env.enabled=true
+#actuator info
+info.app.description=JavaExpress Loans MS
+info.app.version=0.0.1
+info.contact=88888

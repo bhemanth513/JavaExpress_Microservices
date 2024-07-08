@@ -1,0 +1,39 @@
+package com.express.accounts.service;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.express.accounts.dto.CustomerDto;
+import com.express.accounts.model.Accounts;
+import com.express.accounts.model.Customer;
+import com.express.accounts.repository.AccountRepository;
+import com.express.accounts.repository.CustomerRepository;
+
+@Service
+public class AccountServiceImpl implements AccountsService {
+	
+	@Autowired
+	AccountRepository accountRepository;
+	
+	@Autowired
+	CustomerRepository customerRepository;
+	
+	@Autowired
+	CustomerService customerService;
+
+	@Override
+	public void createAccounts(CustomerDto customerDto) {
+		//customer information in db
+		customerService.createCustomer(customerDto);
+		Customer customer = new Customer(); 
+		 BeanUtils.copyProperties(customerDto, customer);
+		
+		 customerRepository.save(customer);
+		//account in db
+		 
+		 Accounts accounts = new Accounts();
+		 
+	}
+
+}

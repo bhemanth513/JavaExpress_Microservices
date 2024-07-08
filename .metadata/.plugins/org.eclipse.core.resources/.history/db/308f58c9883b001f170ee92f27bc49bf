@@ -1,0 +1,19 @@
+spring.application.name=cards
+
+server.port=9094
+
+spring.datasource.url=jdbc:h2:mem:cardsdb
+spring.datasource.username=admin
+spring.datasource.password=admin
+spring.h2.console.enabled=true
+
+spring.jpa.hibernate.ddl-auto=update
+
+#to enable Actuator
+management.endpoints.web.exposure.include=*
+
+management.info.env.enabled=true
+#actuator info
+info.app.description=JavaExpress Cards MS
+info.app.version=0.0.1
+info.contact=88888

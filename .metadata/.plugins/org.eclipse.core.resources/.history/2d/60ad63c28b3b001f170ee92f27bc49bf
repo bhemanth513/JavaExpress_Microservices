@@ -1,0 +1,5 @@
+package com.express.accounts.dto;
+
+public class CutomerDto {
+
+}

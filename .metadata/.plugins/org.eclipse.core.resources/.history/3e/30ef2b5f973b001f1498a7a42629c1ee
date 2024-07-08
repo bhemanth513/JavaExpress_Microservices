@@ -1,0 +1,5 @@
+package com.express.accounts.exception;
+
+public class GlobalExceptionHandler {
+
+}

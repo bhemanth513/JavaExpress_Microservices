@@ -1,0 +1,5 @@
+package com.express.accounts.service;
+
+public interface AccountsService {
+
+}

@@ -1,0 +1,11 @@
+package com.express.accounts.dto;
+
+import jakarta.persistence.Column;
+
+public class CutomerDto {
+	
+	private String name;
+	private String email;
+	private String mobileNumber;
+
+}

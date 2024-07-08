@@ -1,0 +1,18 @@
+package com.express.accounts.exception;
+
+import java.time.LocalDateTime;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+	@ExceptionHandler(CustomerAlreadyExistException.class)
+	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+	public void hadleException(CustomerAlreadyExistException ex) {
+		return new ErrorResponseDto(HttpStatus.BAD_REQUEST,ex.getMessage(),LocalDateTime.now());
+	}
+}

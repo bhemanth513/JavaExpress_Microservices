@@ -1,0 +1,28 @@
+info:
+  app:
+    description: JavaExpress Cards MS
+    version: 0.0.1
+  contact: 88888
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    env:
+      enabled: true
+server:
+  port: 9094
+spring:
+  application:
+    name: cards
+  datasource:
+    password: admin
+    url: jdbc:h2:mem:cardsdb
+    username: admin
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update

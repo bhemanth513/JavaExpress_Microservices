@@ -1,0 +1,5 @@
+package com.express.accounts.repository;
+
+public class CustomerRepository {
+
+}

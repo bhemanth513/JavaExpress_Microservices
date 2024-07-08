@@ -1,0 +1,6 @@
+package com.express.accounts.controller;
+
+@RestController
+public class AccountsController {
+
+}

@@ -1,0 +1,10 @@
+package com.express.accounts.exception;
+
+import org.springframework.http.HttpStatus;
+
+public class ErrorResponseDto {
+
+	private HttpStatus httpStatus;
+	private String errorMessage;
+	private LocalDateTime localDateTime;
+}

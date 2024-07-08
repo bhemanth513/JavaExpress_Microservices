@@ -1,0 +1,15 @@
+package com.express.accounts.service;
+
+import org.springframework.stereotype.Service;
+
+import com.express.accounts.dto.CustomerDto;
+
+@Service
+public class AccountServiceImpl implements AccountsService {
+
+	@Override
+	public void createAccounts(CustomerDto customerDto) {
+		
+	}
+
+}

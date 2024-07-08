@@ -1,0 +1,5 @@
+package com.express.loans.model;
+
+public class Loans {
+
+}

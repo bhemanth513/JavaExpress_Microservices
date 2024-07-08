@@ -1,0 +1,6 @@
+package com.express.accounts.service;
+
+@Service
+public class AccountServiceImpl implements AccountsService {
+
+}

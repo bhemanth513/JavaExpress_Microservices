@@ -1,0 +1,5 @@
+package com.express.cards.model;
+
+public class Cards {
+
+}

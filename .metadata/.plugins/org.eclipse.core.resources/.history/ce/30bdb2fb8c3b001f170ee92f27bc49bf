@@ -1,0 +1,5 @@
+package com.express.accounts.service;
+
+public class CustomerServiceImpl implements CustomerService {
+
+}
