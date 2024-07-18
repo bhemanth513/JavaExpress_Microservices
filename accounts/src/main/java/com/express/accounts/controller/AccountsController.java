@@ -1,5 +1,6 @@
 package com.express.accounts.controller;
 
+import com.express.accounts.dto.CustomerDetailsDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.express.accounts.dto.AccountWithCustomerDto;
 import com.express.accounts.dto.CustomerDto;
 import com.express.accounts.service.AccountsService;
 
@@ -35,13 +35,13 @@ public class AccountsController {
 	}
 	
 	@GetMapping("getAccount/{mobileNumber}")
-	public AccountWithCustomerDto getAccountDetails(@PathVariable("mobileNumber") String mobileNumber) {
+	public CustomerDetailsDto getAccountDetails(@PathVariable("mobileNumber") String mobileNumber) {
 		logger.info("AccountsController:: getAccountDetails {}", mobileNumber);
 		return accountsService.fetchAccountDetails(mobileNumber);
 	}
 	
 	@PutMapping("updateAccount")
-	public String updateAccountDetails(@RequestBody AccountWithCustomerDto accountWithCustomerDto) {
+	public String updateAccountDetails(@RequestBody CustomerDetailsDto accountWithCustomerDto) {
 		logger.info("AccountsController:: updateAccountDetails() updated with given dto {}", accountWithCustomerDto);
 		return accountsService.updateAccountDetails(accountWithCustomerDto);
 	}

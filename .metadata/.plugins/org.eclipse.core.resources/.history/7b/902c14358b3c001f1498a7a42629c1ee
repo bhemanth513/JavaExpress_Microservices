@@ -6,7 +6,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.express.accounts.dto.AccountWithCustomerDto;
+import com.express.accounts.dto.CustomerDetailsDto;
 import com.express.accounts.dto.AccountsDto;
 import com.express.accounts.dto.CustomerDto;
 import com.express.accounts.exception.ResourceNotFoundException;

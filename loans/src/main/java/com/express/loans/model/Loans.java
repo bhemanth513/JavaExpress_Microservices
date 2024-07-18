@@ -21,7 +21,7 @@ public class Loans {
 	private Long loadId;
 	
 	private String mobileNumber;
-	private String loanNumber;
+	private Long loanNumber;
 	private String loanType;
 	private int totalLoan;
 	private int amountPaid;

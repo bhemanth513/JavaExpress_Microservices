@@ -14,13 +14,13 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cards {
+public class Card {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long cardId;
 	
-	private String cardNumber;
+	private Long cardNumber;
 	private String mobileNumber;
 	private String cardType;
 	private int totalLimit;

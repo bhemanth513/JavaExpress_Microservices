@@ -7,11 +7,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class AccountWithCustomerDto {
+public class CustomerDetailsDto {
 
 	private String name;
 	private String email;
 	private String mobileNumber;
 
-	AccountsDto accountsDto; 
+	AccountsDto accountsDto;
+	CardDto cardDto;
+	LoansDto loansDto;
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.express.accounts.dto.AccountWithCustomerDto;
+import com.express.accounts.dto.CustomerDetailsDto;
 import com.express.accounts.dto.CustomerDto;
 import com.express.accounts.service.AccountsService;
 

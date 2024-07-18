@@ -2,11 +2,13 @@ package com.express.accounts.service;
 
 import java.util.Random;
 
+import com.express.accounts.dto.CustomerDetailsDto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.express.accounts.dto.AccountWithCustomerDto;
 import com.express.accounts.dto.AccountsDto;
 import com.express.accounts.dto.CustomerDto;
 import com.express.accounts.exception.ResourceNotFoundException;
@@ -17,7 +19,9 @@ import com.express.accounts.repository.CustomerRepository;
 
 @Service
 public class AccountServiceImpl implements AccountsService {
-	
+
+	public final Logger logger = LoggerFactory.getLogger(AccountServiceImpl.class);
+
 	@Autowired
 	AccountRepository accountRepository;
 	
@@ -43,7 +47,7 @@ public class AccountServiceImpl implements AccountsService {
 	}
 
 	@Override
-	public AccountWithCustomerDto fetchAccountDetails(String mobileNumber) {
+	public CustomerDetailsDto fetchAccountDetails(String mobileNumber) {
 		//find mobileNumber exist or not
 		Customer customer = customerRepository.findByMobileNumber(mobileNumber)
 		.orElseThrow(()-> new ResourceNotFoundException("Mobile number not fund "+ mobileNumber));
@@ -51,7 +55,7 @@ public class AccountServiceImpl implements AccountsService {
 		//find customer exist or not
 		Accounts accounts = accountRepository.findByCustomerId(customer.getCustomerId())
 				.orElseThrow(()-> new ResourceNotFoundException("Customer Not Found for Mobile number"+ customer.getMobileNumber()));
-		AccountWithCustomerDto customerDetailsDto = new AccountWithCustomerDto();
+		CustomerDetailsDto customerDetailsDto = new CustomerDetailsDto();
 		BeanUtils.copyProperties(customer, customerDetailsDto);
 		
 		AccountsDto accountsDto = new AccountsDto();
@@ -61,7 +65,7 @@ public class AccountServiceImpl implements AccountsService {
 	}
 
 	@Override
-	public String updateAccountDetails(AccountWithCustomerDto accountWithCustomerDto) {
+	public String updateAccountDetails(CustomerDetailsDto accountWithCustomerDto) {
 		
 		if(accountWithCustomerDto!=null) {
 	

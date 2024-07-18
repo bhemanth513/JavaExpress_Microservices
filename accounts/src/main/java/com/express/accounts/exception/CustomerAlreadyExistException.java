@@ -1,7 +1,12 @@
 package com.express.accounts.exception;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class CustomerAlreadyExistException extends RuntimeException{
 
+
+	public final Logger logger = LoggerFactory.getLogger(CustomerAlreadyExistException.class);
 	/**
 	 * 
 	 */
