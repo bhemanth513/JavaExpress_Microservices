@@ -31,18 +31,20 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public Customer createCustomer(CustomerDto customerDto) {
+		logger.info("CustomerServiceImpl:: createCustomer started {}", customerDto);
 		Customer customer = new Customer(); 
 		 BeanUtils.copyProperties(customerDto, customer);
 		 if(customerRepository.findByMobileNumber(customerDto.getMobileNumber()).isPresent()) {
 			 throw new CustomerAlreadyExistException("Customer Already Registered with given mobile number {}"+ customerDto.getMobileNumber());
 		 }
 		 Customer customerEntity = customerRepository.save(customer);
+		logger.info("CustomerServiceImpl:: createCustomer completed{}", customerDto);
 		 return customerEntity;
 	}
 
 	@Override
 	public CustomerDetailsDto fetchCustomerDetails(String mobileNumber) {
-
+		logger.info("fetchCustomerDetails:: CustomerDetailsDto started {}", mobileNumber);
 		Customer customer = customerRepository.findByMobileNumber(mobileNumber).orElseThrow(()->
 				new ResourceNotFoundException("Customer not exist with given Mobile number "+mobileNumber));
 

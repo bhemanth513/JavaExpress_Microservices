@@ -20,12 +20,14 @@ public class CardController {
 
     @PostMapping(value = "createCard/{mobileNumber}")
     public String createCard(@PathVariable("mobileNumber") String mobileNumber){
+        logger.info("CardController:: createCard {}", mobileNumber);
         cardService.createCard(mobileNumber);
         return "Card Created Successfully!!";
     }
 
     @GetMapping(value = "getCard/{mobileNumber}",produces = "application/json")
     public CardDto getCardDetails(@PathVariable("mobileNumber") String mobileNumber){
+        logger.info("CardController:: getCardDetails {}", mobileNumber);
         CardDto cardDto = cardService.getCardDetails(mobileNumber);
         return cardDto;
     }

@@ -24,6 +24,7 @@ public class CardService implements ICardService{
     CardRepository cardRepository;
     @Override
     public Card createCard(String mobileNumber) {
+        logger.info("CardService:: getCardDetails {} -started", mobileNumber);
         Optional card= cardRepository.findByMobileNumber(mobileNumber);
         if(card.isPresent()) {
                 throw new  CardAlreadyExist("Card already exist with given Mobile number");
@@ -36,15 +37,19 @@ public class CardService implements ICardService{
         newCard.setAmountUsed(50000);
         newCard.setAvailableAmount(newCard.getTotalLimit()-newCard.getAmountUsed());
         cardRepository.save(newCard);
+        logger.info("CardService:: getCardDetails {} -completed", mobileNumber);
         return newCard;
+
     }
 
     @Override
     public CardDto getCardDetails(String mobileNumber) {
+        logger.info("CardService:: getCardDetails {} -started", mobileNumber);
         Card card= cardRepository.findByMobileNumber(mobileNumber)
                 .orElseThrow(()->new CardNotExistException("Card Not exist with given MobileNumber {}"+mobileNumber));
         CardDto cardDto = new CardDto();
         BeanUtils.copyProperties(card,cardDto);
+        logger.info("CardService:: getCardDetails {} -completed", mobileNumber);
         return cardDto;
     }
 
