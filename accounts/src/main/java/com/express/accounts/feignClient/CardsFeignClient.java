@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name = "Cards")
+@FeignClient(name = "Cards",fallback = CardsFallback.class)
 @LoadBalancerClient("Cards")
 public interface CardsFeignClient {
     @GetMapping(value = "javaExpress/cards/getCard/{mobileNumber}",produces = "application/json")

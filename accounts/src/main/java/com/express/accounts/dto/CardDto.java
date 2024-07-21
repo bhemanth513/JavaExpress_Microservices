@@ -17,5 +17,5 @@ public class CardDto {
     private int totalLimit;
     private int amountUsed;
     private int availableAmount;
-
+    private String status;
 }

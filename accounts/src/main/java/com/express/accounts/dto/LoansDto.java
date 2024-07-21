@@ -17,4 +17,5 @@ public class LoansDto {
     private int totalLoan;
     private int amountPaid;
     private int outstandingAmount;
+    private String status;
 }
